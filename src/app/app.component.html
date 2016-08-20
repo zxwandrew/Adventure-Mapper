@@ -1,0 +1,12 @@
+<div class="itineraryContainer">
+  <h1>
+    <li class="text" *ngFor="let item of items | async">
+      {{item.name}}
+    </li>
+  </h1>
+</div>
+
+<div class="mainMapContainer">
+  <esri-map>
+  </esri-map>
+</div>

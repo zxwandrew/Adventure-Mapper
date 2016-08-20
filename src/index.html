@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <title>ArcGIS JS API 3 & Angular 2</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--load styles-->
+    <!-- Calcite Bootstrap -->
+    <link rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-bootstrap.min-v0.2.css">
+
+    <!-- Calcite Maps -->
+    <link rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-arcgis-4.x.min-v0.2.css">
+
+    <!-- ArcGIS JS 4.0 -->
+    <link rel="stylesheet" href="https://js.arcgis.com/4.0/esri/css/main.css">
+
+    <script>
+      window.dojoConfig = {
+        async: true
+      };
+    </script>
+    <script src="https://js.arcgis.com/4.0/"></script>
+
+    <!-- Load webpack bundles-->
+    <script>
+      require(["/dist/vendor.bundle.js", "/dist/main.bundle.js"], function (vendor, main) {});
+    </script>
+  </head>
+
+  <!-- 3. Display the application -->
+  <body class="calcite-maps">
+      <app-root>Loading...</app-root>
+  </body>
+</html>
