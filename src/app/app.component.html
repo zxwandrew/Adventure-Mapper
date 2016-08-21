@@ -9,8 +9,8 @@
   </div>
 
   <div class="adventures-container">
-      <md-card class="text" *ngFor="let item of items | async">
-        <md-card-title>{{item.name}}</md-card-title>
+      <md-card class="text">
+        <md-card-title>{{ (adventure | async)?.name }}</md-card-title>
       </md-card>
   </div>
 </div>
