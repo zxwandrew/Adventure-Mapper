@@ -19,10 +19,12 @@ import { Adventure } from './adventure/adventure.model'
 })
 export class AppComponent {
   @ViewChild(MapComponent) mapComponent:MapComponent;
+
   title = 'Map Title';
   items: FirebaseListObservable<any[]>;
   adventure: Observable<Adventure>;
   map: Map;
+  center: any = {};//new type?
 
   constructor(private adventureService: AdventureService, private mapService: MapService){
     // this.items = af.database.list('items');
@@ -33,6 +35,21 @@ export class AppComponent {
   ngOnInit(){
     this.map = this.mapService.createMap();
     this.adventure = this.adventureService.get(1);
-    console.log(this.adventure.subscribe(adventure => console.log(adventure)));
+
+    this.adventure.subscribe(adventure => {
+      this.center.maxlat = adventure.maxlat;
+      this.center.maxlong = adventure.maxlong;
+      this.center.minlat = adventure.minlat;
+      this.center.minlong = adventure.minlong;
+      // console.log(this.adventure);
+      this.centerMap();
+    });
+  }
+
+  centerMap(){
+    this.mapComponent.centerMap(this.center);
+  }
+
+  ngAfterViewInit(){
   }
 }

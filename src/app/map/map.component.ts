@@ -1,6 +1,8 @@
 import { Component, ElementRef, Output, EventEmitter, Input } from '@angular/core';
 import Map = require('esri/Map');
 import MapView = require('esri/views/MapView');
+import Extent = require('esri/geometry/Extent');
+import Point = require('esri/geometry/Point');
 
 // import { MapService } from './map.service';
 
@@ -17,8 +19,6 @@ export class MapComponent{
     // this.map = new Map({
     //   basemap: "streets"
     // });
-    console.log(this.map)
-
     this.view = new MapView({
       container: "map-div",
       map: this.map,
@@ -29,6 +29,28 @@ export class MapComponent{
   }
 
   ngAfterViewInit() {
+
+  }
+
+  centerMap(center:any){
+    if(center.minlong == center.maxlong || center.minlat == center.maxlat){
+      let pt = new Point({
+        longitude: center.minlong,
+        latitude: center.minlat
+      });
+      this.view.center = pt;
+      this.view.zoom = 16;
+      // console.log(center);
+    }else{
+      this.view.extent = new Extent({
+        xmin: center.minlong,
+        ymin: center.minlat,
+        xmax: center.maxlong,
+        ymax: center.maxlat,
+        spatialReference: 4326
+      })
+    }
+
 
   }
   //
