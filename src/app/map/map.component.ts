@@ -1,4 +1,4 @@
-import { Component, ElementRef, Output, EventEmitter } from '@angular/core';
+import { Component, ElementRef, Output, EventEmitter, Input } from '@angular/core';
 import Map = require('esri/Map');
 import MapView = require('esri/views/MapView');
 
@@ -10,13 +10,14 @@ import MapView = require('esri/views/MapView');
   styleUrls: ['map.component.css']
 })
 export class MapComponent{
-  map:Map
+  @Input() map:Map
   view:MapView
 
   ngOnInit(){
-    this.map = new Map({
-      basemap: "streets"
-    });
+    // this.map = new Map({
+    //   basemap: "streets"
+    // });
+    console.log(this.map)
 
     this.view = new MapView({
       container: "map-div",
