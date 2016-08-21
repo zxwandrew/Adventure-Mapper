@@ -9,8 +9,15 @@
   </div>
 
   <div class="adventures-container">
-      <md-card class="text">
-        <md-card-title>{{ (adventure | async)?.name }}</md-card-title>
-      </md-card>
+
+    <div class="row">
+      <app-adventure [adventure]="adventure" ></app-adventure>
+    </div>
+
+    <!-- <div class="row" *ngFor="let attraction of ((adventure | async)?.attractions)"> -->
+      <app-attraction *ngFor="let attraction of ((adventure | async)?.attractions)" [attraction]="attraction">
+      </app-attraction>
+    <!-- </div> -->
+
   </div>
 </div>

@@ -1,4 +1,4 @@
-import {Attraction} from "./attraction.model"
+import {Attraction} from "../attraction/attraction.model"
 
 export class Adventure {
   constructor(

@@ -10,7 +10,14 @@
 }
 .adventures-container{
   padding: 20px;
+  display:flex;
+  flex-direction:column
 }
 .adventures-container md-card{
   margin: 20px;
+}
+
+.row{
+  flex: 0 0 0;
+  margin: 30px;
 }

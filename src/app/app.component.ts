@@ -3,12 +3,13 @@ import {Observable} from 'rxjs/Observable';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 import { MapComponent } from './map';
-import {AdventureService } from './adventure/adventure.service'
+import { AttractionComponent } from './attraction/attraction.component';
 
+import {AdventureService } from './adventure/adventure.service'
 import { Adventure } from './adventure/adventure.model'
 
 @Component({
-  directives: [MapComponent],
+    directives: [MapComponent, AttractionComponent],
     selector: 'app-root',
     templateUrl: 'app.component.html',
     styleUrls: ['app.component.css'],

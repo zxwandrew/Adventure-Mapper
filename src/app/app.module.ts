@@ -9,6 +9,8 @@ import {MdToolbarModule} from '@angular2-material/toolbar/toolbar';
 
 import { AppComponent } from './app.component';
 import { MapComponent } from './map/map.component';
+import { AdventureComponent } from './adventure/adventure.component';
+import { AttractionComponent } from './attraction/attraction.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDT76Euc50g03SZ8WaBkDZ5tterYTmiabE",
@@ -22,7 +24,9 @@ const firebaseConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    MapComponent
+    MapComponent,
+    AdventureComponent,
+    AttractionComponent
   ],
   imports: [
     BrowserModule,
