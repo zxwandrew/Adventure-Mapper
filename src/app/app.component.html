@@ -1,12 +1,16 @@
-<div class="itineraryContainer">
-  <h1>
-    <li class="text" *ngFor="let item of items | async">
-      {{item.name}}
-    </li>
-  </h1>
-</div>
+<div class="app-container">
+   <md-toolbar color="primary">
+     <h1>Adventure Mapper</h1>
+   </md-toolbar>
 
-<div class="mainMapContainer">
-  <esri-map>
-  </esri-map>
+  <div class="main-map-container">
+    <esri-map>
+    </esri-map>
+  </div>
+
+  <div class="adventures-container">
+      <md-card class="text" *ngFor="let item of items | async">
+        <md-card-title>{{item.name}}</md-card-title>
+      </md-card>
+  </div>
 </div>

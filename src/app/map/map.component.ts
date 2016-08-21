@@ -9,7 +9,7 @@ import MapView = require('esri/views/MapView');
   templateUrl: 'map.component.html',
   styleUrls: ['map.component.css']
 })
-export class MapComponent {
+export class MapComponent{
   map:Map
   view:MapView
 
@@ -19,11 +19,16 @@ export class MapComponent {
     });
 
     this.view = new MapView({
-      container: "mapDiv",
+      container: "map-div",
       map: this.map,
       zoom: 4,
       center: [15, 65]
     });
+
+  }
+
+  ngAfterViewInit() {
+
   }
   //
   // @Output() mapLoaded = new EventEmitter();

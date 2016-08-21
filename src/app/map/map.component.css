@@ -1,3 +1,6 @@
-#mapDiv{
-  height: 80%;
+.inner-map-container{
+  height: 100%;
+}
+#map-div{
+  height: 70%;
 }

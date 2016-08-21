@@ -20,7 +20,10 @@ module.exports = {
             "@angular/platform-browser-dynamic",
             "@angular/router",
             'angularfire2',
-            'firebase' 
+            'firebase',
+            '@angular2-material/core',
+            '@angular2-material/button',
+            '@angular2-material/card'
         ]
     },
     output: {

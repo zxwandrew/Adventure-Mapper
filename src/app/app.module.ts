@@ -3,6 +3,10 @@ import { NgModule, ApplicationRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from 'angularfire2';
+import { MdCardModule } from '@angular2-material/card';
+import { MdButtonModule } from '@angular2-material/button';
+import {MdToolbarModule} from '@angular2-material/toolbar/toolbar';
+
 import { AppComponent } from './app.component';
 import { MapComponent } from './map/map.component';
 
@@ -24,7 +28,10 @@ const firebaseConfig = {
     BrowserModule,
     CommonModule,
     FormsModule,
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    MdButtonModule,
+    MdCardModule,
+    MdToolbarModule
   ],
   providers: [],
   entryComponents: [AppComponent],
