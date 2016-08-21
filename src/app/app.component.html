@@ -1,7 +1,7 @@
 <div class="app-container">
-   <md-toolbar color="primary">
-     <h1>Adventure Mapper</h1>
-   </md-toolbar>
+  <md-toolbar color="primary">
+    <h1>Adventure Mapper</h1>
+  </md-toolbar>
 
   <div class="main-map-container">
     <esri-map [map]="map">
@@ -11,13 +11,11 @@
   <div class="adventures-container">
 
     <div class="row">
-      <app-adventure [adventure]="adventure" ></app-adventure>
+      <app-adventure [adventure]="adventure"></app-adventure>
     </div>
 
-    <!-- <div class="row" *ngFor="let attraction of ((adventure | async)?.attractions)"> -->
-      <app-attraction *ngFor="let attraction of ((adventure | async)?.attractions)" [attraction]="attraction">
-      </app-attraction>
-    <!-- </div> -->
+    <app-attraction *ngFor="let attraction of attractions; let i = index" [attraction]="attraction" [attr.id]="'attraction-'+i">
+    </app-attraction>
 
   </div>
 </div>

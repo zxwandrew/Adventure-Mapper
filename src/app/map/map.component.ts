@@ -16,9 +16,6 @@ export class MapComponent{
   view:MapView
 
   ngOnInit(){
-    // this.map = new Map({
-    //   basemap: "streets"
-    // });
     this.view = new MapView({
       container: "map-div",
       map: this.map,
@@ -40,46 +37,15 @@ export class MapComponent{
       });
       this.view.center = pt;
       this.view.zoom = 16;
-      // console.log(center);
     }else{
+      console.log("here");
       this.view.extent = new Extent({
         xmin: center.minlong,
         ymin: center.minlat,
         xmax: center.maxlong,
         ymax: center.maxlat,
         spatialReference: 4326
-      })
+      }).expand(3);
     }
-
-
   }
-  //
-  // @Output() mapLoaded = new EventEmitter();
-  //
-  // map: any;
-  // options: Object;
-  // itemId: string;
-  //
-  // constructor(private elRef:ElementRef, private _mapService:MapService) {}
-  //
-  // ngOnInit() {
-  //   // create the map
-  //   this._mapService.createMap(this.itemId, this.elRef.nativeElement.firstChild, this.options).then((response) => {
-  //     // get a reference to teh map and expose response to app
-  //     this.map = response.map;
-  //     this.mapLoaded.next(response);
-  //   });
-  // }
-  //
-  // setBasemap(basemapName) {
-  //   this._mapService.clearBasemap(this.map);
-  //   this.map.setBasemap(basemapName);
-  // }
-  //
-  // // destroy map
-  // ngOnDestroy() {
-  //   if (this.map) {
-  //     this.map.destroy();
-  //   }
-  // }
 }

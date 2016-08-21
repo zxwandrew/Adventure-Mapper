@@ -1,5 +1,12 @@
 <div class="row" *ngIf="attraction != null">
   <md-card>
     <md-card-title>{{attraction.name}}</md-card-title>
+
+    <img md-card-image alt="Main image" src={{attraction.images[1]}}>
+
+    <md-card-content>
+        <md-card-title>Travel Notes</md-card-title>
+        <p>{{attraction.notes}}</p>
+      </md-card-content>
   </md-card>
 </div>
