@@ -2,11 +2,21 @@
   <md-card>
     <md-card-title>{{attraction.name}}</md-card-title>
 
+    <md-card-subtitle>
+      <button (click)='popoverToggle()' class="popover"> <md-icon>map</md-icon> </button>
+      <div *ngIf="popoverDisplay" class="popover-content">
+        <div class="mini-map">
+          Hihi
+        </div>
+      </div>
+    </md-card-subtitle>
+
+
     <img md-card-image alt="Main image" src={{attraction.images[1]}}>
 
     <md-card-content>
-        <md-card-title>Travel Notes</md-card-title>
-        <p>{{attraction.notes}}</p>
-      </md-card-content>
+      <md-card-title>Travel Notes</md-card-title>
+      <p>{{attraction.notes}}</p>
+    </md-card-content>
   </md-card>
 </div>

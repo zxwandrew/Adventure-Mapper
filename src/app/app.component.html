@@ -14,7 +14,7 @@
       <app-adventure [adventure]="adventure"></app-adventure>
     </div>
 
-    <app-attraction *ngFor="let attraction of attractions; let i = index" [attraction]="attraction" [attr.id]="'attraction-'+i">
+    <app-attraction *ngFor="let attraction of attractions; let i = index" [attraction]="attraction" [map]="map" [attr.id]="'attraction-'+i">
     </app-attraction>
 
   </div>

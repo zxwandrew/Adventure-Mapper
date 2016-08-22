@@ -5,7 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from 'angularfire2';
 import { MdCardModule } from '@angular2-material/card';
 import { MdButtonModule } from '@angular2-material/button';
-import {MdToolbarModule} from '@angular2-material/toolbar/toolbar';
+import { MdToolbarModule } from '@angular2-material/toolbar/toolbar';
+import { MdIconModule } from '@angular2-material/icon/icon'
 
 import { AppComponent } from './app.component';
 import { MapComponent } from './map/map.component';
@@ -35,6 +36,7 @@ const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     MdButtonModule,
     MdCardModule,
+    MdIconModule,
     MdToolbarModule
   ],
   providers: [],
