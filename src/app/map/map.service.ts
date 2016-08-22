@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import Map = require('esri/Map');
 import SimpleRenderer = require('esri/renderers/SimpleRenderer')
 import SimpleMarkerSymbol = require('esri/symbols/SimpleMarkerSymbol');
+import PictureMarkerSymbol = require('esri/symbols/PictureMarkerSymbol');
 import FeatureLayer = require('esri/layers/FeatureLayer');
 import Color = require('esri/Color');
 import Collection = require('esri/core/Collection');
@@ -33,9 +34,8 @@ export class MapService {
     }];
     // Set up popup template for the layer
  pointsTemplate: any = {
-    title: "<a href=#attraction-{ObjectID}>{ObjectID}</a>",
-    content: "<h2>{name}</h2>"+
-    "<p>{notes}... more</p>"+
+    title: "<a href=#attraction-{ObjectID}>{ObjectID}. {name}</a>",
+    content: "<p>{notes}... <a href=#attraction-{ObjectID}>more</a></p>"+
     "<img src='{image1}' alt='image1' with='100' height='100'>"
   };
 
@@ -52,16 +52,11 @@ export class MapService {
     let tempOutlineColor: Color = new Color("#FF0055");
     let tempInnerColor: Color = new Color([211, 255, 0, 0]);
     this.pointsRenderer = new SimpleRenderer({
-      symbol: new SimpleMarkerSymbol({
-          style: "circle",
-          size: 20,
-          color: tempInnerColor,
-          outline: {
-            width: 1,
-            color: tempOutlineColor,
-            style: "solid"
-          }
-        })
+        symbol: new PictureMarkerSymbol({
+        url: "http://www.iconsfind.com/wp-content/uploads/2015/10/20151012_561baa2aa747e.png",
+        width: 30,
+        height: 30
+      })
     });
 
     let tempGraphics: Collection = new Collection();
