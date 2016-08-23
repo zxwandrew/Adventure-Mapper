@@ -14,12 +14,17 @@ export class AttractionComponent implements OnInit {
   @Input() map: Map;
   attractionId: number;
   popoverDisplay: Boolean = false;
+  geometry: any = {};
 
   constructor() { }
 
   ngOnInit() {
     if(this.attraction != null){
       this.attractionId = this.attraction.index;
+      this.geometry = {
+        "type": "Point",
+        "coordinates": [[this.attraction.long, this.attraction.lat]]
+      }
     }
   }
 

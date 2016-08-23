@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { MapComponent } from './map/map.component';
 import { AdventureComponent } from './adventure/adventure.component';
 import { AttractionComponent } from './attraction/attraction.component';
+import { MiniMapComponent } from './mini-map/mini-map.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDT76Euc50g03SZ8WaBkDZ5tterYTmiabE",
@@ -27,7 +28,8 @@ const firebaseConfig = {
     AppComponent,
     MapComponent,
     AdventureComponent,
-    AttractionComponent
+    AttractionComponent,
+    MiniMapComponent
   ],
   imports: [
     BrowserModule,

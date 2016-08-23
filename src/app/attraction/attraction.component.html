@@ -2,14 +2,14 @@
   <md-card>
     <md-card-title>{{attraction.name}}</md-card-title>
 
-    <md-card-subtitle>
+    <md-card-subtitle (mouseenter)='popoverToggle()' (mouseleave)='popoverToggle()'>
       <!-- <div md-raised-button (click)='popoverToggle()' class="popover"> -->
-        <md-icon md-24 (click)='popoverToggle()' class="popover">map</md-icon>
+        <md-icon md-24 class="popover">map</md-icon>
       <!-- </div> -->
       <div *ngIf="popoverDisplay" class="popover-content">
         <div class="mini-map">
-          <esri-map [map]="map" [mapKey]="attractionId">
-          </esri-map>
+          <esri-mini-map [map]="map" [mapKey]="attractionId" [geometry]="geometry">
+          </esri-mini-map>
         </div>
       </div>
     </md-card-subtitle>

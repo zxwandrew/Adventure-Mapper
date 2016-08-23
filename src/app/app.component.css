@@ -2,8 +2,8 @@
   height: 100%;
   width: 100%;
 }
-.app-container{
-
+h1{
+  margin: 0;
 }
 .main-map-container{
   height: 60%;
@@ -16,19 +16,21 @@
 .adventures-container md-card{
   margin: 20px;
 }
-
 .row{
   flex: 0 0 0;
   margin: 30px;
 }
-
 .app-action {
   display: inline-block;
   position: fixed;
   bottom: 20px;
   right: 20px;
 }
-
 .map-fab-icon{
   padding-top: 0px;
+}
+#footer{
+  height: 100%;
+  width: 100%;
+  text-align: center;
 }
