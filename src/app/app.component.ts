@@ -1,7 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
-import {PageScroll} from 'ng2-page-scroll';
+import { PageScroll } from 'ng2-page-scroll';
+import Extent = require('esri/geometry/Extent');
 
 import { MapComponent, MapService } from './map';
 import Map = require('esri/Map');
@@ -27,7 +28,7 @@ export class AppComponent {
   items: FirebaseListObservable<any[]>;
   adventure: Observable<Adventure>;
   map: Map;
-  center: any = {};//new type?
+  extent: Extent;
   attractions: Attraction[];
 
   constructor(private adventureService: AdventureService, private mapService: MapService){
@@ -41,12 +42,8 @@ export class AppComponent {
     this.adventure = this.adventureService.get(1);
 
     this.adventure.subscribe(adventure => {
-      this.center.maxlat = adventure.maxlat;
-      this.center.maxlong = adventure.maxlong;
-      this.center.minlat = adventure.minlat;
-      this.center.minlong = adventure.minlong;
+      this.extent = new Extent(adventure.extent);
       this.attractions = adventure.attractions;
-
       this.attractions.forEach((attraction, i)=>{
         // if(attraction == null){
         //   attractions.splice(i);
@@ -56,13 +53,13 @@ export class AppComponent {
         attraction.index = i;
       });
 
-      this.centerMap();
+      this.centerMap(this.extent);
       this.addGraphic();
     });
   }
 
   centerMap(){
-    this.mapComponent.centerMap(this.center);
+    this.mapComponent.centerMap(this.extent);
   }
 
   addGraphic(){

@@ -1,4 +1,5 @@
 import {Attraction} from "../attraction/attraction.model"
+import Extent = require('esri/geometry/Extent');
 
 export class Adventure {
   constructor(
@@ -6,10 +7,6 @@ export class Adventure {
     public author: string,
     public notes: string,
     public id: number,
-    public maxlat: number,
-    public maxlong: number,
-    public minlat: number,
-    public minlong: number,
-    public name: string
+    public extent: Extent
   ) { }
 };

@@ -4,8 +4,6 @@ import MapView = require('esri/views/MapView');
 import Extent = require('esri/geometry/Extent');
 import Point = require('esri/geometry/Point');
 
-// import { MapService } from './map.service';
-
 @Component({
   selector: 'esri-map',
   templateUrl: 'map.component.html',
@@ -14,6 +12,7 @@ import Point = require('esri/geometry/Point');
 export class MapComponent{
   @Input() map:Map
   @Input() mapKey:string
+  @Input() mapExtent:Extent
   view:MapView
   divName:string;
 
@@ -26,27 +25,21 @@ export class MapComponent{
       container: this.divName,
       map: this.map,
       zoom: 4,
-      center: [15, 65]
+      extent: this.mapExtent
     });
   }
 
-  centerMap(center:any){
-    if(center.minlong == center.maxlong || center.minlat == center.maxlat){
+  centerMap(extent:Extent){
+    if(extent.xmax== extent.xmin || extent.ymax == extent.ymin){
       let pt = new Point({
-        longitude: center.minlong,
-        latitude: center.minlat
+        longitude: extent.xmax,
+        latitude: extent.ymax
       });
       this.view.center = pt;
       this.view.zoom = 16;
     }else{
       console.log("here");
-      this.view.extent = new Extent({
-        xmin: center.minlong,
-        ymin: center.minlat,
-        xmax: center.maxlong,
-        ymax: center.maxlat,
-        spatialReference: 4326
-      }).expand(3);
+      this.view.extent = extent.expand(3);
     }
   }
 }

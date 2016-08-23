@@ -13,7 +13,7 @@ import PictureMarkerSymbol = require('esri/symbols/PictureMarkerSymbol');
 })
 export class MiniMapComponent implements OnInit {
   @Input() map:Map
-  @Input() mapKey:string
+  @Input() mapKey:number
   @Input() geometry:any
   view:MapView
   divName:string;
