@@ -25,36 +25,39 @@ export class MiniMapComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    if(this.geometry.type == "Point"){
+    if(this.geometry.type == "point"){
       this.view = new MapView({
         container: this.divName,
         map: this.map,
         zoom: 15,
-        center: [this.geometry.coordinates[0][0], this.geometry.coordinates[0][1]]
+        center: [this.geometry.longitude, this.geometry.latitude]
       });
       this.view.ui.remove('zoom');
 
-      //should be moved out
-      let query = new Query();
-      query.objectIds=[this.mapKey];
-      this.map.layers.getItemAt(0).queryFeatures(query).then(function(results){
-        console.log(results.features);
-        results.features[0].symbol = new PictureMarkerSymbol({
-          url: "http://www.iconsfind.com/wp-content/uploads/2016/01/20160111_5693c117ae35e.png",
-          width: 30,
-          height: 30
-        });
-      });
+      this.queryThisFeature().then(this.highlightFeature);
     }
   }
 
   ngOnDestroy() {
+    this.queryThisFeature().then(this.unhighlightFeature);
+  }
+
+  queryThisFeature(){
     let query = new Query();
     query.objectIds=[this.mapKey];
-    this.map.layers.getItemAt(0).queryFeatures(query).then(function(results){
-      console.log(results.features);
-      results.features[0].symbol = null;
+    return this.map.layers.getItemAt(0).queryFeatures(query);
+  }
+
+  highlightFeature(results:any){
+    results.features[0].symbol = new PictureMarkerSymbol({
+      url: "http://www.iconsfind.com/wp-content/uploads/2016/01/20160111_5693c117ae35e.png",
+      width: 30,
+      height: 30
     });
+  }
+
+  unhighlightFeature(results:any){
+    results.features[0].symbol = null;
   }
 
 }

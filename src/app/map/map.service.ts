@@ -74,11 +74,9 @@ export class MapService {
   }
 
   addGraphic(location: any) {
+
     let graphic: Graphic = new Graphic({
-      geometry: new Point({
-        longitude: location.long,
-        latitude: location.lat
-      }),
+      geometry: new Point(location.geometry),
       attributes: {
         ObjectID: location.index,
         name: location.name,

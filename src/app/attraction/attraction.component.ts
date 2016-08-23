@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Attraction } from './attraction.model'
 import Map = require('esri/Map');
 import { MapComponent, MapService } from '../map';
+import Point = require('esri/geometry/Point');
 
 @Component({
   selector: 'app-attraction',
@@ -21,10 +22,11 @@ export class AttractionComponent implements OnInit {
   ngOnInit() {
     if(this.attraction != null){
       this.attractionId = this.attraction.index;
-      this.geometry = {
-        "type": "Point",
-        "coordinates": [[this.attraction.long, this.attraction.lat]]
-      }
+      this.geometry = new Point(this.attraction.geometry);
+      // {
+      //   "type": "Point",
+      //   "coordinates": [[this.attraction.long, this.attraction.lat]]
+      // }
     }
   }
 
