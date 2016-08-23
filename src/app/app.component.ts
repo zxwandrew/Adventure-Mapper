@@ -47,7 +47,7 @@ export class AppComponent {
       this.center.minlong = adventure.minlong;
       this.attractions = adventure.attractions;
 
-      console.log(this.attractions);
+      // console.log(this.attractions);
       this.centerMap();
       this.addGraphic();
     });

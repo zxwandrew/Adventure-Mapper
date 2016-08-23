@@ -6,7 +6,8 @@
       <button (click)='popoverToggle()' class="popover"> <md-icon>map</md-icon> </button>
       <div *ngIf="popoverDisplay" class="popover-content">
         <div class="mini-map">
-          Hihi
+          <esri-map [map]="map" [mapKey]="attractionId">
+          </esri-map>
         </div>
       </div>
     </md-card-subtitle>

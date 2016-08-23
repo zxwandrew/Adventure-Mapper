@@ -4,7 +4,7 @@
   </md-toolbar>
 
   <div class="main-map-container">
-    <esri-map [map]="map">
+    <esri-map [map]="map" [mapKey]="0">
     </esri-map>
   </div>
 
@@ -14,7 +14,8 @@
       <app-adventure [adventure]="adventure"></app-adventure>
     </div>
 
-    <app-attraction *ngFor="let attraction of attractions; let i = index" [attraction]="attraction" [map]="map" [attr.id]="'attraction-'+i">
+    <!-- attr.id is used to give element an id -->
+    <app-attraction *ngFor="let attraction of attractions; let i = index" [attraction]="attraction" [attractionId]="i" [map]="map" [attr.id]="'attraction-'+i">
     </app-attraction>
 
   </div>

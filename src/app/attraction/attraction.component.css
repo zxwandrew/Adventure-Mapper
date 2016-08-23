@@ -2,3 +2,7 @@
   flex: 0 0 0;
   margin: 30px;
 }
+.mini-map{
+  height: 20%;
+  width: 40%;
+}

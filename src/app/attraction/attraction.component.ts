@@ -13,11 +13,14 @@ import { MapComponent, MapService } from '../map';
 export class AttractionComponent implements OnInit {
   @Input() attraction: Attraction;
   @Input() map: Map;
+  @Input() attractionId: number;
   popoverDisplay: Boolean = false;
 
   constructor() { }
 
   ngOnInit() {
+    // console.log(this.attractionID)
+    // console.log(this.attraction)
   }
 
   popoverToggle(){

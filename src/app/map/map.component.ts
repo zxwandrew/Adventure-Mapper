@@ -13,20 +13,21 @@ import Point = require('esri/geometry/Point');
 })
 export class MapComponent{
   @Input() map:Map
+  @Input() mapKey:string
   view:MapView
+  divName:string;
 
   ngOnInit(){
+    this.divName = "map-div"+this.mapKey
+  }
+
+  ngAfterViewInit() {
     this.view = new MapView({
-      container: "map-div",
+      container: this.divName,
       map: this.map,
       zoom: 4,
       center: [15, 65]
     });
-
-  }
-
-  ngAfterViewInit() {
-
   }
 
   centerMap(center:any){
