@@ -1,5 +1,5 @@
 <div class="app-container">
-  <md-toolbar color="primary">
+  <md-toolbar color="primary" id="header">
     <h1>Adventure Mapper</h1>
   </md-toolbar>
 
@@ -15,8 +15,14 @@
     </div>
 
     <!-- attr.id is used to give element an id -->
-    <app-attraction *ngFor="let attraction of attractions; let i = index" [attraction]="attraction" [attractionId]="i" [map]="map" [attr.id]="'attraction-'+i">
+    <app-attraction *ngFor="let attraction of attractions; let i = index" [attraction]="attraction" [map]="map" [attr.id]="'attraction-'+i">
     </app-attraction>
 
   </div>
 </div>
+
+<a href="#header">
+<button md-fab md-raised-button [disableRipple]="true" aria-label="menu" class="app-action">
+  <md-icon md-24 class='map-fab-icon'> map </md-icon>
+</button>
+</a>

@@ -47,7 +47,15 @@ export class AppComponent {
       this.center.minlong = adventure.minlong;
       this.attractions = adventure.attractions;
 
-      // console.log(this.attractions);
+      this.attractions.forEach((attraction, i)=>{
+        // if(attraction == null){
+        //   attractions.splice(i);
+        // }else{
+        //   attraction.index = i;
+        // }
+        attraction.index = i;
+      });
+
       this.centerMap();
       this.addGraphic();
     });
@@ -59,7 +67,7 @@ export class AppComponent {
 
   addGraphic(){
     this.attractions.forEach((attraction, i)=>{
-      this.mapService.addGraphic(i, attraction)
+      this.mapService.addGraphic(attraction)
     })
   }
 

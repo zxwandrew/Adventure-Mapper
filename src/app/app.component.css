@@ -21,3 +21,14 @@
   flex: 0 0 0;
   margin: 30px;
 }
+
+.app-action {
+  display: inline-block;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.map-fab-icon{
+  padding-top: 0px;
+}

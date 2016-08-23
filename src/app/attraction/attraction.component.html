@@ -3,7 +3,9 @@
     <md-card-title>{{attraction.name}}</md-card-title>
 
     <md-card-subtitle>
-      <button (click)='popoverToggle()' class="popover"> <md-icon>map</md-icon> </button>
+      <!-- <div md-raised-button (click)='popoverToggle()' class="popover"> -->
+        <md-icon md-24 (click)='popoverToggle()' class="popover">map</md-icon>
+      <!-- </div> -->
       <div *ngIf="popoverDisplay" class="popover-content">
         <div class="mini-map">
           <esri-map [map]="map" [mapKey]="attractionId">
