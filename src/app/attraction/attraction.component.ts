@@ -3,6 +3,7 @@ import { Attraction } from './attraction.model'
 import Map = require('esri/Map');
 import { MapComponent, MapService } from '../map';
 import Point = require('esri/geometry/Point');
+import Polygon = require('esri/geometry/Polygon');
 
 @Component({
   selector: 'app-attraction',
@@ -22,11 +23,11 @@ export class AttractionComponent implements OnInit {
   ngOnInit() {
     if(this.attraction != null){
       this.attractionId = this.attraction.index;
-      this.geometry = new Point(this.attraction.geometry);
-      // {
-      //   "type": "Point",
-      //   "coordinates": [[this.attraction.long, this.attraction.lat]]
-      // }
+      if(this.attraction.geometry.type=="point"){
+        this.geometry = new Point(this.attraction.geometry);
+      }else if(this.attraction.geometry.type == "polygon"){
+        this.geometry = new Polygon(this.attraction.geometry);
+      }
     }
   }
 
